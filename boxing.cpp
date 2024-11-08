@@ -13,9 +13,36 @@
 #include <stdlib.h>
 using namespace std;
 
+void create(float A[], int n);
+
 class Node
 {
 public:
     float data;
     Node *next;
 } *Head = NULL;
+
+int main()
+{
+    return 0;
+}
+
+void create(float A[], int n)
+{
+    int i;
+    Node *t;
+    Node *last;
+    Head = new Node;
+    Head -> data = A[0];
+    Head -> next = nullptr;
+    last = Head;
+    
+    for (i = 1; i < n; i++)
+    {
+        t = new Node;
+        t -> data = A[i];
+        t -> next = nullptr;
+        last -> next = t;
+        last = t;
+    }
+}
