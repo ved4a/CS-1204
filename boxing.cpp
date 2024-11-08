@@ -14,6 +14,7 @@
 using namespace std;
 
 void create(float A[], int n);
+void display(Node *p);
 
 class Node
 {
@@ -44,5 +45,14 @@ void create(float A[], int n)
         t -> next = nullptr;
         last -> next = t;
         last = t;
+    }
+}
+
+void display(Node *p)
+{
+    while (p != nullptr)
+    {
+        printf("%.2f\n", p -> data);
+        p = p -> next;
     }
 }
