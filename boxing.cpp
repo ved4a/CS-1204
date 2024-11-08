@@ -13,15 +13,16 @@
 #include <stdlib.h>
 using namespace std;
 
-void create(float A[], int n);
-void display(Node *p);
-
 class Node
 {
 public:
     float data;
     Node *next;
 } *Head = NULL;
+
+void create(float A[], int n);
+void display(Node *p);
+void boxing_pair(Node *head);
 
 int main()
 {
@@ -55,4 +56,23 @@ void display(Node *p)
         printf("%.2f\n", p -> data);
         p = p -> next;
     }
+}
+
+void boxing_pair(Node *head)
+{
+    Node *p = Head;
+    Node *q = p -> next;
+    
+    while (q != nullptr)
+    {
+        if(p -> data < q -> data)
+        {
+            printf("(%.2f, %.2f)", p -> data, q -> data);
+            p = p -> next;
+            q = q -> next;
+        } else {
+            q = q -> next;
+        }
+    }
+    printf("(%.2f, NULL)", p -> data);
 }
