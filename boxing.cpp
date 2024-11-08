@@ -26,6 +26,11 @@ void boxing_pair(Node *head);
 
 int main()
 {
+    float A[] = {5.5, 5.4, 6.2, 5.8};
+    create(A, 4);
+    display(Head);
+    boxing_pair(Head);
+    
     return 0;
 }
 
