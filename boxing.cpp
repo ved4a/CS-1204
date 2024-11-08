@@ -8,3 +8,14 @@
 // they stand in the line), the returned sparring pairs are (5.5, 6.2), (5.4,6.2), (6.2, NULL), and (5.8,NULL).
 // Note that 6.2 and 5.8 candidates have no taller candidate on the right. Provide a pseudocode to
 // implement the algorithm to return all sparring pairs and comment on its worst case time complexity.
+
+#include <iostream>
+#include <stdlib.h>
+using namespace std;
+
+class Node
+{
+public:
+    float data;
+    Node *next;
+} *Head = NULL;
