@@ -12,6 +12,8 @@ int count(struct Node *p);
 int sum(struct Node *p);
 int max(struct Node *p);
 Node* search(struct Node *p, int key);
+void insert(struct Node *p, int pos, int x);
+void del(struct Node *p, int pos);
 
 int main(){
     int arr[] = {3, 5, 12, 7, 15};
@@ -107,5 +109,24 @@ void insert(struct Node *p, int pos, int x){
             t -> next = p -> next;
             p -> next = t;
         }
+    }
+}
+
+void del(struct Node *p, int pos){
+    struct Node *a, *b;
+    a = Head;
+    b = nullptr;
+
+    // delete head
+    if(pos == 0){
+        Head = Head -> next;
+        delete a;
+    } else if (pos > 0){
+        for(int i = 0; i < pos - 1 && a; i++){
+            b = a;
+            a = a -> next;
+        }
+        b -> next = a -> next;
+        delete a;
     }
 }
