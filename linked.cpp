@@ -8,11 +8,13 @@ struct Node{
 
 void create(int A[], int n);
 void display(struct Node *p);
+int count(struct Node *p);
 
 int main(){
     int arr[] = {3, 5, 12, 7, 15};
     create(arr, 5);
-    display(Head);
+    // display(Head);
+    count(Head);
     return 0;
 }
 
@@ -39,4 +41,13 @@ void display(struct Node *p){
         printf("%d\n", p -> data);
         p = p -> next;
     }
+}
+
+int count(struct Node *p){
+    int x = 0;
+    while(p != nullptr){
+        x++;
+        p = p -> next;
+    }
+    return x;
 }
