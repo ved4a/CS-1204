@@ -14,7 +14,7 @@ int main(){
     int arr[] = {3, 5, 12, 7, 15};
     create(arr, 5);
     // display(Head);
-    count(Head);
+    printf("%d", count(Head));
     return 0;
 }
 
