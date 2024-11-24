@@ -21,10 +21,12 @@ void reverse(struct Node *first);
 int main(){
     int arr[] = {3, 5, 12, 7, 15};
     create(arr, 5);
-    // display(Head);
-    printf("%d\n", count(Head));
-    printf("%d\n", sum(Head));
-    printf("%d\n", max(Head));
+    display(Head);
+    // printf("%d\n", count(Head));
+    // printf("%d\n", sum(Head));
+    // printf("%d\n", max(Head));
+    reverse(Head);
+    display(Head);
     return 0;
 }
 
@@ -148,19 +150,14 @@ bool isSorted(struct Node *first){
 }
 
 void reverse(struct Node *first){
-    struct Node *p, *q;
-    p = Head;
-    q = nullptr;
+    Node *current = Head;
+    Node *prev, *next = nullptr;
 
-    while(p -> next != nullptr){
-        q = p;
-        p = p -> next;
+    while(current != nullptr){
+        next = current -> next;
+        current -> next = prev;
+        prev = current;
+        current = next;
     }
-    Head = p;
-    while(q){
-        p -> next = q;
-        p = q;
-        q = q -> next;
-    }
-    p -> next = nullptr;
+    Head = prev;
 }
