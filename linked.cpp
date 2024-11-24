@@ -1,5 +1,6 @@
 #include <iostream>
 #include <stdlib.h>
+using namespace std;
 
 struct Node{
     int data;
@@ -14,6 +15,7 @@ int max(struct Node *p);
 Node* search(struct Node *p, int key);
 void insert(struct Node *p, int pos, int x);
 void del(struct Node *p, int pos);
+bool isSorted(struct Node *p);
 
 int main(){
     int arr[] = {3, 5, 12, 7, 15};
@@ -89,7 +91,7 @@ Node* search(struct Node *p, int key){
     search(p -> next, key);
 }
 
-void insert(struct Node *p, int pos, int x){
+void insert(struct Node *first, int pos, int x){
     struct Node *t, *p;
     // insert at Head
     if(pos == 0){
@@ -129,4 +131,17 @@ void del(struct Node *p, int pos){
         b -> next = a -> next;
         delete a;
     }
+}
+
+bool isSorted(struct Node *first){
+    int x = INT32_MIN;
+    struct Node *p;
+    while(p){
+        if(p -> data < x){
+            return false;
+        }
+        x = p -> data;
+        p = p-> next;
+    }
+    return true;
 }
