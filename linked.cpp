@@ -11,6 +11,7 @@ void display(struct Node *p);
 int count(struct Node *p);
 int sum(struct Node *p);
 int max(struct Node *p);
+Node* search(struct Node *p, int key);
 
 int main(){
     int arr[] = {3, 5, 12, 7, 15};
@@ -74,4 +75,14 @@ int max(struct Node *p){
         p = p -> next;
     }
     return n;
+}
+
+Node* search(struct Node *p, int key){
+    if(p == nullptr){
+        return NULL;
+    }
+    if(key == p -> data){
+        return p;
+    }
+    search(p -> next, key);
 }
