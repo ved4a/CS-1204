@@ -10,13 +10,15 @@ void create(int A[], int n);
 void display(struct Node *p);
 int count(struct Node *p);
 int sum(struct Node *p);
+int max(struct Node *p);
 
 int main(){
     int arr[] = {3, 5, 12, 7, 15};
     create(arr, 5);
     // display(Head);
     printf("%d\n", count(Head));
-    printf("%d", sum(Head));
+    printf("%d\n", sum(Head));
+    printf("%d\n", max(Head));
     return 0;
 }
 
@@ -61,4 +63,15 @@ int sum(struct Node *p){
         p = p-> next;
     }
     return sum;
+}
+
+int max(struct Node *p){
+    int n = INT32_MIN;
+    while(p){
+        if(n < p -> data){
+            n = p -> data;
+        }
+        p = p -> next;
+    }
+    return n;
 }
