@@ -9,12 +9,14 @@ struct Node{
 void create(int A[], int n);
 void display(struct Node *p);
 int count(struct Node *p);
+int sum(struct Node *p);
 
 int main(){
     int arr[] = {3, 5, 12, 7, 15};
     create(arr, 5);
     // display(Head);
-    printf("%d", count(Head));
+    printf("%d\n", count(Head));
+    printf("%d", sum(Head));
     return 0;
 }
 
@@ -50,4 +52,13 @@ int count(struct Node *p){
         p = p -> next;
     }
     return x;
+}
+
+int sum(struct Node *p){
+    int sum = 0;
+    while(p != nullptr){
+        sum += p -> data;
+        p = p-> next;
+    }
+    return sum;
 }
