@@ -16,6 +16,7 @@ Node* search(struct Node *p, int key);
 void insert(struct Node *p, int pos, int x);
 void del(struct Node *p, int pos);
 bool isSorted(struct Node *p);
+void reverse(struct Node *first);
 
 int main(){
     int arr[] = {3, 5, 12, 7, 15};
@@ -144,4 +145,22 @@ bool isSorted(struct Node *first){
         p = p-> next;
     }
     return true;
+}
+
+void reverse(struct Node *first){
+    struct Node *p, *q;
+    p = Head;
+    q = nullptr;
+
+    while(p -> next != nullptr){
+        q = p;
+        p = p -> next;
+    }
+    Head = p;
+    while(q){
+        p -> next = q;
+        p = q;
+        q = q -> next;
+    }
+    p -> next = nullptr;
 }
