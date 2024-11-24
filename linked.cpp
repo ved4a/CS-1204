@@ -86,3 +86,26 @@ Node* search(struct Node *p, int key){
     }
     search(p -> next, key);
 }
+
+void insert(struct Node *p, int pos, int x){
+    struct Node *t, *p;
+    // insert at Head
+    if(pos == 0){
+        t = new Node;
+        t -> data = x;
+        t -> next = Head;
+        Head = t;
+    } else if(pos > 0) {
+        // insert at a pos beyond head
+        p = Head;
+        for(int i = 0; i < pos - 1 && p; i++){
+            p = p -> next;
+        }
+        if(p){
+            t = new Node;
+            t -> data = x;
+            t -> next = p -> next;
+            p -> next = t;
+        }
+    }
+}
