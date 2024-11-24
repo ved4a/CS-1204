@@ -36,7 +36,7 @@ void create(int A[], int n){
 
 void display(struct Node *p){
     while(p != nullptr){
-        printf("%d", p -> data);
+        printf("%d\n", p -> data);
         p = p -> next;
     }
 }
