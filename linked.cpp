@@ -6,7 +6,13 @@ struct Node{
     Node* next;
 } *Head = nullptr;
 
+void create(int A[], int n);
+void display(struct Node *p);
+
 int main(){
+    int arr[] = {3, 5, 12, 7, 15};
+    create(arr, 5);
+    display(Head);
     return 0;
 }
 
@@ -25,5 +31,12 @@ void create(int A[], int n){
         t -> next = nullptr;
         last -> next = t;
         last = t;
+    }
+}
+
+void display(struct Node *p){
+    while(p != nullptr){
+        printf("%d", p -> data);
+        p = p -> next;
     }
 }
